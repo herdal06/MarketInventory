@@ -19,16 +19,24 @@ class InventoryViewModel @Inject constructor(
         }
     }
 
-    private fun getNewItemEntry(itemName: String, itemPrice: Double, quantity: Int): Item {
+    private fun getNewItemEntry(itemName: String, itemPrice: String, quantity: String): Item {
         return Item(
             name = itemName,
-            price = itemPrice,
-            quantityInStock = quantity
+            price = itemPrice.toDouble(),
+            quantityInStock = quantity.toInt()
         )
     }
 
-    fun addNewItem(itemName: String, itemPrice: Double, quantity: Int) {
+    fun addNewItem(itemName: String, itemPrice: String, quantity: String) {
         val newItem = getNewItemEntry(itemName, itemPrice, quantity)
         insertItem(newItem)
+    }
+
+    fun isEntryValid(itemName: String, itemPrice: String, itemCount: String): Boolean {
+        if (itemName.isBlank() || itemPrice.isBlank() || itemCount.isBlank()
+        ) {
+            return false
+        }
+        return true
     }
 }
