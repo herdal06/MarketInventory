@@ -6,7 +6,7 @@
     android:layout_marginTop="@dimen/extra_small_margin">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvItemName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -14,12 +14,12 @@
         android:textSize="@dimen/extra_large_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPrice"
+        app:layout_constraintEnd_toStartOf="@+id/tvItemPrice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvPrice"
+        android:id="@+id/tvItemPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -27,12 +27,12 @@
         android:textSize="@dimen/extra_large_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/tvItemQuantity"
+        app:layout_constraintStart_toEndOf="@+id/tvItemName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvItemQuantity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -41,7 +41,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvPrice"
+        app:layout_constraintStart_toEndOf="@+id/tvItemPrice"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

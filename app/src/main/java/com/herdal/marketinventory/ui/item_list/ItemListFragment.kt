@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.herdal.marketinventory.databinding.FragmentItemListBinding
+import com.herdal.marketinventory.ui.item_list.adapter.ItemListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,6 +19,10 @@ class ItemListFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val itemListAdapter: ItemListAdapter by lazy {
+        ItemListAdapter(::onItemClicked)
+    }
+
     private val viewModel: ItemListViewModel by viewModels()
 
     override fun onCreateView(
@@ -26,8 +31,20 @@ class ItemListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() = binding.apply {
+        rvItems.adapter = itemListAdapter
+    }
+
+    private fun onItemClicked(id: Int) {
+
     }
 
     override fun onDestroyView() {
