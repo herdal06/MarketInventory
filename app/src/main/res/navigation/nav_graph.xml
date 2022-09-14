@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/itemListFragment"
-        android:name="com.herdal.marketinventory.ui.ItemListFragment"
+        android:name="com.herdal.marketinventory.ui.item_list.ItemListFragment"
         android:label="fragment_item_list"
         tools:layout="@layout/fragment_item_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
-        android:name="com.herdal.marketinventory.ui.AddItemFragment"
+        android:name="com.herdal.marketinventory.ui.add_item.AddItemFragment"
         android:label="fragment_add_item"
         tools:layout="@layout/fragment_add_item" >
         <action

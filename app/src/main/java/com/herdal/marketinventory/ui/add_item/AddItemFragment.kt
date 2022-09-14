@@ -1,14 +1,12 @@
-package com.herdal.marketinventory.ui
+package com.herdal.marketinventory.ui.add_item
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.herdal.marketinventory.App
 import com.herdal.marketinventory.data.local.Item
 import com.herdal.marketinventory.databinding.FragmentAddItemBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +20,7 @@ class AddItemFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val viewModel: InventoryViewModel by viewModels()
+    private val viewModel: AddItemViewModel by viewModels()
 
     lateinit var item: Item
 

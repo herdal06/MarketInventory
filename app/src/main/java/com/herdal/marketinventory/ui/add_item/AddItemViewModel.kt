@@ -1,4 +1,4 @@
-package com.herdal.marketinventory.ui
+package com.herdal.marketinventory.ui.add_item
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class InventoryViewModel @Inject constructor(
+class AddItemViewModel @Inject constructor(
     private val itemRepository: ItemRepository
 ) : ViewModel() {
 
