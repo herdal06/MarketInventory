@@ -1,9 +1,8 @@
-package com.herdal.marketinventory.data
+package com.herdal.marketinventory.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.herdal.marketinventory.data.repository.ItemRepository
-import com.herdal.marketinventory.ui.InventoryViewModel
 
 class InventoryViewModelFactory(
     private val itemRepository: ItemRepository
