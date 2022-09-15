@@ -27,4 +27,6 @@
     <string name="price_detail">Price:</string>
     <string name="quantity_in_stock_detail">Quantity In Stock:</string>
     <string name="delete_all_items">Delete All Items</string>
+    <string name="item_deleted">Item Deleted</string>
+    <string name="undo">UNDO</string>
 </resources>

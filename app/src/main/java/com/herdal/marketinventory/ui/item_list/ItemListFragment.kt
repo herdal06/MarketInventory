@@ -7,9 +7,14 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.herdal.marketinventory.R
+import com.herdal.marketinventory.data.local.Item
 import com.herdal.marketinventory.databinding.FragmentItemListBinding
 import com.herdal.marketinventory.ui.item_list.adapter.ItemListAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +27,8 @@ class ItemListFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    lateinit var item: Item
 
     private val itemListAdapter: ItemListAdapter by lazy {
         ItemListAdapter(::onItemClicked)
@@ -44,6 +51,25 @@ class ItemListFragment : Fragment() {
         observeLiveData()
         fabOnClick()
         setupTopBarMenu()
+        swipeToDelete()
+    }
+
+    private fun swipeToDelete() {
+        ItemTouchHelper(object :
+            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val item = itemListAdapter.currentList[viewHolder.adapterPosition]
+                viewModel.onItemSwiped(item)
+            }
+        }).attachToRecyclerView(binding.rvItems)
     }
 
     private fun setupTopBarMenu() {
@@ -94,6 +120,26 @@ class ItemListFragment : Fragment() {
         viewModel.allItems.observe(viewLifecycleOwner) { items ->
             items.let {
                 itemListAdapter.submitList(it)
+            }
+        }
+        collectEvents()
+    }
+
+    private fun collectEvents() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.itemsEvent.collect { event ->
+                when (event) {
+                    is ItemListViewModel.ItemsEvent.ShowUndoDeleteItemMessage -> {
+                        Snackbar.make(
+                            requireView(),
+                            getString(R.string.item_deleted),
+                            Snackbar.LENGTH_LONG
+                        )
+                            .setAction(getString(R.string.undo)) {
+                                viewModel.onUndoDeleteClick(event.item)
+                            }.show()
+                    }
+                }
             }
         }
     }
