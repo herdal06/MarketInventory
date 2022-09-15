@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.herdal.marketinventory.databinding.FragmentItemListBinding
 import com.herdal.marketinventory.ui.item_list.adapter.ItemListAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,23 @@ class ItemListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+        observeLiveData()
+        fabOnClick()
+    }
+
+    private fun fabOnClick() = binding.fabAddItem.setOnClickListener {
+        val action = ItemListFragmentDirections.actionItemListFragmentToAddItemFragment(
+            //getString(R.string.add_fragment_title)
+        )
+        this.findNavController().navigate(action)
+    }
+
+    private fun observeLiveData() {
+        viewModel.allItems.observe(viewLifecycleOwner) { items ->
+            items.let {
+                itemListAdapter.submitList(it)
+            }
+        }
     }
 
     private fun setupRecyclerView() = binding.apply {

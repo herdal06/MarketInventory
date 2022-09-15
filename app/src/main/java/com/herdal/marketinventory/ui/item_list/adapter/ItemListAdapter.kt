@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.herdal.marketinventory.data.local.Item
 import com.herdal.marketinventory.databinding.ListItemBinding
+import com.herdal.marketinventory.utils.extensions.getFormattedPrice
 
 class ItemListAdapter(private val onItemClicked: (id: Int) -> Unit) :
     ListAdapter<Item, ItemListAdapter.ItemViewHolder>(DiffCallback) {
@@ -25,7 +26,7 @@ class ItemListAdapter(private val onItemClicked: (id: Int) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Item) = binding.apply {
             tvItemName.text = item.name
-            tvItemPrice.text = item.price.toString()
+            tvItemPrice.text = item.getFormattedPrice()
             tvItemQuantity.text = item.quantityInStock.toString()
         }
     }
