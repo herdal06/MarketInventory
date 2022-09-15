@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_itemListFragment_to_addItemFragment"
             app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
@@ -22,5 +25,18 @@
         <action
             android:id="@+id/action_addItemFragment_to_itemListFragment"
             app:destination="@id/itemListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="com.herdal.marketinventory.ui.item_detail.ItemDetailFragment"
+        android:label="fragment_item_detail"
+        tools:layout="@layout/fragment_item_detail" >
+        <action
+            android:id="@+id/action_itemDetailFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

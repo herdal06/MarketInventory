@@ -47,5 +47,10 @@ class ItemListAdapter(private val onItemClicked: (id: Int) -> Unit) :
             onItemClicked(currentItem.id)
         }
         holder.bind(currentItem)
+        holder.itemView.setOnClickListener {
+            if (currentItem != null) {
+                onItemClicked.invoke(currentItem.id)
+            }
+        }
     }
 }

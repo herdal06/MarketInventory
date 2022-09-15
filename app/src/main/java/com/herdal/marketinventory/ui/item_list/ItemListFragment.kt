@@ -30,7 +30,7 @@ class ItemListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -62,7 +62,8 @@ class ItemListFragment : Fragment() {
     }
 
     private fun onItemClicked(id: Int) {
-
+        val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(id)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
