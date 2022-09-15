@@ -23,4 +23,7 @@
     <string name="example_item_name">Apples</string>
     <string name="example_item_price">2.5</string>
     <string name="example_item_quantity">84</string>
+    <string name="item_name">Item Name:</string>
+    <string name="price_detail">Price:</string>
+    <string name="quantity_in_stock_detail">Quantity In Stock:</string>
 </resources>
