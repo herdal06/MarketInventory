@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.herdal.marketinventory.R
 import com.herdal.marketinventory.data.local.Item
 import com.herdal.marketinventory.databinding.FragmentItemDetailBinding
 import com.herdal.marketinventory.utils.extensions.getFormattedPrice
@@ -45,6 +48,8 @@ class ItemDetailFragment : Fragment() {
         tvItemNameDetail.text = item.name
         tvItemPriceDetail.text = item.getFormattedPrice()
         tvItemQuantityDetail.text = item.quantityInStock.toString()
+
+        btnDelete.setOnClickListener { showAlertDialog() }
     }
 
     private fun getArgumentsId(): Int = navigationArgs.id
@@ -54,6 +59,22 @@ class ItemDetailFragment : Fragment() {
             item = selectedItem
             bindUI(item)
         }
+    }
+
+    private fun deleteItem() {
+        viewModel.deleteItem(item)
+        findNavController().navigateUp()
+    }
+
+    private fun showAlertDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setMessage(R.string.delete_question)
+            .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                deleteItem()
+            }.setNegativeButton(getString(R.string.no)) { _, _ ->
+
+            }
+            .show()
     }
 
     override fun onDestroyView() {
