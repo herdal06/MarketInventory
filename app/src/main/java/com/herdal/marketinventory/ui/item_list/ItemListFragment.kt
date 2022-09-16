@@ -2,6 +2,7 @@ package com.herdal.marketinventory.ui.item_list
 
 import android.os.Bundle
 import android.view.*
+import android.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -20,7 +21,7 @@ import com.herdal.marketinventory.ui.item_list.adapter.ItemListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ItemListFragment : Fragment() {
+class ItemListFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private var _binding: FragmentItemListBinding? = null
 
@@ -88,6 +89,10 @@ class ItemListFragment : Fragment() {
                         showAlertDialog()
                         true
                     }
+                    R.id.menu_search_item -> {
+                        //searchByName("")
+                        true
+                    }
                     else -> false
                 }
             }
@@ -98,6 +103,7 @@ class ItemListFragment : Fragment() {
         viewModel.deleteAllItems()
     }
 
+    // Confirm deletion alert dialog
     private fun showAlertDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setMessage(R.string.delete_question)
@@ -151,6 +157,27 @@ class ItemListFragment : Fragment() {
     private fun onItemClicked(id: Int) {
         val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(id)
         findNavController().navigate(action)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            searchByName(query)
+        }
+        return true
+    }
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        if (query != null) {
+            searchByName(query)
+        }
+        return true
+    }
+
+    private fun searchByName(query: String) {
+        val searchQuery = "%$query%"
+        viewModel.searchByName(searchQuery).observe(this) { list ->
+            list.let { itemListAdapter.submitList(it) }
+        }
     }
 
     override fun onDestroyView() {

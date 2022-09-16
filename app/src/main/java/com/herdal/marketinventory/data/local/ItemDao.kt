@@ -23,4 +23,7 @@ interface ItemDao {
 
     @Query("DELETE FROM item")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM item WHERE name LIKE :searchQuery")
+    fun searchByName(searchQuery: String): Flow<List<Item>>
 }

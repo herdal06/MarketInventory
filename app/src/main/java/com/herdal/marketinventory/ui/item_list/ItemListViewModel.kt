@@ -40,4 +40,7 @@ class ItemListViewModel @Inject constructor(
     sealed class ItemsEvent {
         data class ShowUndoDeleteItemMessage(val item: Item) : ItemsEvent()
     }
+
+    fun searchByName(searchQuery: String): LiveData<List<Item>> =
+        itemRepository.searchByName(searchQuery).asLiveData()
 }
