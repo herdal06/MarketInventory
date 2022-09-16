@@ -29,4 +29,5 @@
     <string name="delete_all_items">Delete All Items</string>
     <string name="item_deleted">Item Deleted</string>
     <string name="undo">UNDO</string>
+    <string name="search">Search</string>
 </resources>
