@@ -13,4 +13,23 @@
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_sort_item"
+        android:contentDescription="@string/sort"
+        android:icon="@drawable/ic_sort"
+        android:title="@string/sort"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/action_sort_by_price"
+                android:title="@string/sort_by_price" />
+
+            <item
+                android:id="@+id/action_sort_by_quantity"
+                android:title="@string/sort_by_quantity" />
+        </menu>
+
+    </item>
 </menu>

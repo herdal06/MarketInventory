@@ -30,4 +30,7 @@
     <string name="item_deleted">Item Deleted</string>
     <string name="undo">UNDO</string>
     <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="sort_by_price">Sort by price</string>
+    <string name="sort_by_quantity">Sort by quantity</string>
 </resources>
