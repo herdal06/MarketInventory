@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.herdal.marketinventory.data.local.Item
+import com.herdal.marketinventory.data.local.item.Item
 import com.herdal.marketinventory.databinding.ListItemBinding
 import com.herdal.marketinventory.utils.extensions.getFormattedPrice
 

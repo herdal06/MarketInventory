@@ -2,7 +2,7 @@ package com.herdal.marketinventory.ui.add_item
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.herdal.marketinventory.data.local.Item
+import com.herdal.marketinventory.data.local.item.Item
 import com.herdal.marketinventory.data.repository.ItemRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

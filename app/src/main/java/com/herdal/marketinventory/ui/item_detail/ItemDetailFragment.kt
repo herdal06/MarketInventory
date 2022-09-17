@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.herdal.marketinventory.R
-import com.herdal.marketinventory.data.local.Item
+import com.herdal.marketinventory.data.local.item.Item
 import com.herdal.marketinventory.databinding.FragmentItemDetailBinding
 import com.herdal.marketinventory.utils.extensions.getFormattedPrice
 import dagger.hilt.android.AndroidEntryPoint

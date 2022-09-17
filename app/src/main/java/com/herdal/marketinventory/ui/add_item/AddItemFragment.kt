@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.herdal.marketinventory.data.local.Item
+import com.herdal.marketinventory.data.local.item.Item
 import com.herdal.marketinventory.databinding.FragmentAddItemBinding
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,4 @@
-package com.herdal.marketinventory.data.local
+package com.herdal.marketinventory.data.local.item
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow

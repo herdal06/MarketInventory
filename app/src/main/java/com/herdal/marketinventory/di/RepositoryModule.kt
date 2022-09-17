@@ -1,6 +1,6 @@
 package com.herdal.marketinventory.di
 
-import com.herdal.marketinventory.data.local.ItemDao
+import com.herdal.marketinventory.data.local.item.ItemDao
 import com.herdal.marketinventory.data.repository.ItemRepository
 import dagger.Module
 import dagger.Provides

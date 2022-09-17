@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.herdal.marketinventory.R
-import com.herdal.marketinventory.data.local.Item
+import com.herdal.marketinventory.data.local.item.Item
 import com.herdal.marketinventory.databinding.FragmentItemListBinding
 import com.herdal.marketinventory.ui.item_list.adapter.ItemListAdapter
 import dagger.hilt.android.AndroidEntryPoint

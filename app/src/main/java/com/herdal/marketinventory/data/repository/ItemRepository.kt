@@ -1,7 +1,7 @@
 package com.herdal.marketinventory.data.repository
 
-import com.herdal.marketinventory.data.local.Item
-import com.herdal.marketinventory.data.local.ItemDao
+import com.herdal.marketinventory.data.local.item.Item
+import com.herdal.marketinventory.data.local.item.ItemDao
 import javax.inject.Inject
 
 class ItemRepository @Inject constructor(

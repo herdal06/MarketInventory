@@ -2,8 +2,8 @@ package com.herdal.marketinventory.di
 
 import android.content.Context
 import androidx.room.Room
-import com.herdal.marketinventory.data.local.ItemDao
-import com.herdal.marketinventory.data.local.ItemDatabase
+import com.herdal.marketinventory.data.local.item.ItemDao
+import com.herdal.marketinventory.data.local.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,13 +21,13 @@ object AppModule {
         @ApplicationContext app: Context
     ) = Room.databaseBuilder(
         app,
-        ItemDatabase::class.java,
+        AppDatabase::class.java,
         "market_inventory_db"
     ).build()
 
     @Singleton
     @Provides
     fun provideItemDao(
-        db: ItemDatabase
+        db: AppDatabase
     ): ItemDao = db.itemDao()
 }
