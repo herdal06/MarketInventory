@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/extra_large_padding"
+    android:layout_margin="@dimen/large_margin"
     tools:context=".ui.item_detail.ItemDetailFragment">
 
 
@@ -12,9 +12,10 @@
         android:id="@+id/btnDelete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/delete"
+        android:layout_marginTop="@dimen/triple_extra_large_margin"
+        android:text="@string/delete_item"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
@@ -31,21 +32,25 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/item_name" />
+            android:text="@string/item_name"
+            android:textSize="@dimen/large_size"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvItemNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/large_margin"
-            android:text="@string/example_item_name" />
+            android:text="@string/example_item_name"
+            android:textSize="@dimen/large_size"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/extra_small_margin"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,21 +60,25 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/price_detail" />
+            android:text="@string/price_detail"
+            android:textSize="@dimen/large_size"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvItemPriceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/large_margin"
-            android:text="@string/example_item_price" />
+            android:text="@string/example_item_price"
+            android:textSize="@dimen/large_size"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/extra_small_margin"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,24 +88,32 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/quantity_in_stock_detail" />
+            android:text="@string/quantity_in_stock_detail"
+            android:textSize="@dimen/large_size"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvItemQuantityDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/large_margin"
-            android:text="@string/example_item_quantity" />
+            android:text="@string/example_item_quantity"
+            android:textSize="@dimen/large_size"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabEditItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/extra_small_margin"
+        android:layout_marginBottom="@dimen/extra_small_margin"
         android:clickable="true"
         android:contentDescription="@string/edit_item"
         android:src="@drawable/ic_edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        tools:ignore="ImageContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

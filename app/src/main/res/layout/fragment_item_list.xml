@@ -8,6 +8,16 @@
     tools:context=".ui.item_list.ItemListFragment">
 
 
+    <View
+        android:id="@+id/dividerTop"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/double_extra_large_margin"
+        android:background="@color/dividerColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total_income" />
+
     <TextView
         android:id="@+id/tvItemName"
         android:layout_width="0dp"
@@ -16,10 +26,10 @@
         android:text="@string/item"
         android:textSize="@dimen/extra_large_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintBottom_toTopOf="@+id/dividerBottom"
         app:layout_constraintEnd_toStartOf="@+id/tvItemPrice"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/dividerTop" />
 
     <TextView
         android:id="@+id/tvItemPrice"
@@ -29,29 +39,30 @@
         android:text="@string/price"
         android:textSize="@dimen/extra_large_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintBottom_toTopOf="@+id/dividerBottom"
         app:layout_constraintEnd_toStartOf="@+id/tvItemQuantity"
         app:layout_constraintStart_toEndOf="@+id/tvItemName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/dividerTop" />
 
     <TextView
         android:id="@+id/tvItemQuantity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/extra_small_margin"
         android:gravity="center"
         android:text="@string/quantity_in_stock"
         android:textSize="@dimen/extra_large_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintBottom_toTopOf="@+id/dividerBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvItemPrice"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/dividerTop" />
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/dividerBottom"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/extra_small_margin"
         android:background="@color/dividerColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/dividerBottom"
         tools:listitem="@layout/list_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -80,5 +91,27 @@
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@android:color/white" />
+        app:tint="@android:color/white"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/tv_total_income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/extra_small_margin"
+        android:text="@string/example_item_quantity"
+        android:textSize="@dimen/double_extra_large_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_income_message"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_income_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_income"
+        android:textSize="@dimen/double_extra_large_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
