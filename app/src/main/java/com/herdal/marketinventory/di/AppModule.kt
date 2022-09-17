@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import com.herdal.marketinventory.data.local.ItemDao
 import com.herdal.marketinventory.data.local.ItemDatabase
-import com.herdal.marketinventory.data.repository.ItemRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

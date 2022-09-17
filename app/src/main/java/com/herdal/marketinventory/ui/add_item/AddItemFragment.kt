@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.herdal.marketinventory.data.local.Item
 import com.herdal.marketinventory.databinding.FragmentAddItemBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddItemFragment : Fragment() {
+class AddItemFragment : BottomSheetDialogFragment() {
 
     private var _binding: FragmentAddItemBinding? = null
 
@@ -28,7 +28,7 @@ class AddItemFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddItemBinding.inflate(inflater, container, false)
         return binding.root
     }

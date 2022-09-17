@@ -17,7 +17,7 @@
             android:id="@+id/action_itemListFragment_to_itemDetailFragment"
             app:destination="@id/itemDetailFragment" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/addItemFragment"
         android:name="com.herdal.marketinventory.ui.add_item.AddItemFragment"
         android:label="fragment_add_item"
@@ -25,7 +25,7 @@
         <action
             android:id="@+id/action_addItemFragment_to_itemListFragment"
             app:destination="@id/itemListFragment" />
-    </fragment>
+    </dialog>
     <fragment
         android:id="@+id/itemDetailFragment"
         android:name="com.herdal.marketinventory.ui.item_detail.ItemDetailFragment"

@@ -2,7 +2,6 @@ package com.herdal.marketinventory.data.repository
 
 import com.herdal.marketinventory.data.local.Item
 import com.herdal.marketinventory.data.local.ItemDao
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class ItemRepository @Inject constructor(
