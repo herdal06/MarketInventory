@@ -35,4 +35,5 @@
     <string name="sort_by_quantity">Sort by quantity</string>
     <string name="total_income">Total income:</string>
     <string name="sell_item">SELL ITEM</string>
+    <string name="successfully_deleted">Successfully deleted</string>
 </resources>

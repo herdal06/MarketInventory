@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -71,10 +72,19 @@ class ItemDetailFragment : Fragment() {
             .setMessage(R.string.delete_question)
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
                 deleteItem()
+                showDeleteToastMessage()
             }.setNegativeButton(getString(R.string.no)) { _, _ ->
 
             }
             .show()
+    }
+
+    private fun showDeleteToastMessage() {
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.successfully_deleted),
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     override fun onDestroyView() {
